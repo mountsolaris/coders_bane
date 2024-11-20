@@ -5,6 +5,21 @@
     <title>Feature: Timer</title>
 </head>
 <body>
+<button id="timer">Click!</button>
 
+<script>
+    const timer = document.querySelector('#timer');
+    timer.addEventListener('click', () => {
+        // Execute a function after 3 seconds
+        setTimeout(() => {
+            console.log('Timeout executed after 3 seconds');
+            alarm();
+        }, 3000);
+    });
+
+    function alarm() {
+        window.alert('Zu Hilfe!')
+    };
+</script>
 </body>
 </html>

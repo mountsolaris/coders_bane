@@ -1,1 +1,11 @@
 https://www.freecodecamp.org/news/javascript-timer-how-to-set-a-timer-function-in-js/
+
+setTimeout(() => {
+    console.log('This runs after 3 seconds');
+}, 3000);
+
+// Alternativ mit einer benannten Funktion:
+function myFunction() {
+    console.log('Hello after 3 seconds!');
+}
+setTimeout(myFunction, 3000);
