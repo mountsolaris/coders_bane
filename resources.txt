@@ -9,4 +9,11 @@ function myFunction() {
     console.log('Hello after 3 seconds!');
 }
 setTimeout(myFunction, 3000);
-aaah
+
+
+
+https://www.geeksforgeeks.org/print-ascii-value-of-a-character-in-javascript/
+console.log(String.fromCharCode(97,98,99));
+https://www.torsten-horn.de/techdocs/ascii.htm
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode
+
