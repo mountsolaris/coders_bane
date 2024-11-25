@@ -16,6 +16,9 @@ function myFunction() {
 }
 setTimeout(myFunction, 3000);
 
+STOPPUHR
+https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/Timer_und_Countdown
+
 FRAMES
 https://www.tutorialspoint.com/html/html_frames.htm
 

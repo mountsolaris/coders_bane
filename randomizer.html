@@ -61,7 +61,7 @@
 
     captchaForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
+        console.log(attempts);
         if (textfeld.value === 'Insert Text' || textfeld.value.trim() === '') {
             alert('The input field must not be empty!');
             imageContainer.innerHTML = `<img src="${randomImage}"/>`;
@@ -71,14 +71,14 @@
         attempts++;
         let trollNumber = '';
         let trollInput = '1';
-        if (attempts < 11) {
+         if (attempts  %3 == 0) {
+             trollNumber = textfeld.value;
+             trollInput = prompt('Please enter the text you just entered.');
+         } else if (attempts < 20) {
             textfeld.value = '';
             textfeld.classList.add('is-invalid');
 //          alert('Wrong!!')
             shufflePictures();
-        } else if (attempts % 3 == 0) {
-            trollNumber = textfeld.value;
-            trollInput = prompt('Please enter the text you just entered.');
         } else {
             alert('ende der durchsage');
         }
