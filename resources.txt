@@ -33,3 +33,7 @@ WICHTIG:
 <div class="container min-vw-100 d-none d-md-block" id="page">
 
 d-none d-md und aufwärts im block
+
+
+TURNSTILE CAPTCHA
+512x109
