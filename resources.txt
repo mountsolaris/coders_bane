@@ -16,6 +16,8 @@ function myFunction() {
 }
 setTimeout(myFunction, 3000);
 
+FRAMES
+https://www.tutorialspoint.com/html/html_frames.htm
 
 
 https://www.geeksforgeeks.org/print-ascii-value-of-a-character-in-javascript/

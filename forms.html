@@ -19,6 +19,8 @@
         </div>
         <button class="btn btn-primary mt-3" id="mybutton">Knopf</button>
     </form>
+
+    <div class="row-cols-4" id="divdiv"></div>
 </div>
 
 <div class="container">
@@ -32,12 +34,14 @@
 </div>
 
 <script>
+    const divdiv = document.getElementById('divdiv');
     // Datei einlesen und als Placeholder setzen
     fetch('placeholder.txt')
         .then(response => response.text()) // Dateiinhalt als Text lesen
         .then(data => {
             // Setzt den Placeholder des Input-Feldes
-            document.getElementById('textfeld').setAttribute('placeholder', data);
+            // document.getElementById('textfeld').setAttribute('placeholder', data);
+            divdiv.textContent = data;
         })
         .catch(error => console.error('Fehler beim Laden der Datei:', error));
 </script>

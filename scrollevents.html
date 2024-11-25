@@ -8,36 +8,47 @@
     <title>Scrollevents</title>
 </head>
 <body>
-<div class="container min-vw-100 d-none d-md-block" id="page">
-    <div class="row-cols-10 align-items-center" id="textblock">
-        <div class="d-block d-lg-inline p-2 text-bg-light text-dark">
-            <h1>Überschrift</h1>
-            <h2>Das ist die Seite, die ich verändern will.</h2>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-                rebum. Stet clita kasd gubergren.</p>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
-        </div>
-
+<div class="container d-md-block" id="page">
+    <div class="row-cols-10 align-items-center" id="textblock" style="width: 700px"
+    <div class="d-block d-lg-block p-2 text-bg-light text-dark" id="textblock">
+        <h1>Überschrift</h1>
+        <h2>Das ist die Seite, die ich verändern will.</h2>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+            rebum. Stet clita kasd gubergren.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+            rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
     </div>
+
+</div>
 </div>
 
 <script>
+    const textblock = document.getElementById('textblock');
     const page = document.querySelector('#page');
+
+    let attempts = 0;
     page.addEventListener('mousewheel', (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         console.log(e);
+        attempts++;
+        attempts++;
+
+        let currentWidth = parseInt(textblock.style.width);
+        console.log(currentWidth);
+        let newWidth = Math.max(currentWidth, 5) - attempts;
+        console.log(newWidth);
+        textblock.style.width = newWidth + "px";
     });
+
 
     document.addEventListener('keydown', (e) => {
         console.log(e);
         console.log(e.key)
     });
-
 
 
 </script>
