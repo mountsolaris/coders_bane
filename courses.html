@@ -29,10 +29,12 @@
 <form id="registerForm">
     <p>No need for password123 or remembering your aunt's wedding day. For your convenience we've added a custom
         password generator.</p>
+    <label for="email">Please enter your E-Mail.</label>
+    <input type="email" id="email" required/>
     <label for="username">Select whichever username (he/her/they) you like.</label>
     <input type="text" id="username" required/>
     <label for="suggestedPassword">Generate a secure password here</label>
-    <input type="text" id="suggestedPassword" size="30" required/>
+    <input type="text" id="suggestedPassword" size="30" readonly required/>
     <button id="generatePassword">Generate new password</button>
     <label for="checkSuggestedPassword">Re-enter your password to confirm.</label>
     <input type="text" id="checkSuggestedPassword" size="30 " required/>
@@ -102,7 +104,7 @@
         e.preventDefault();
     });
 
-        const suggestedPassword = document.getElementById('suggestedPassword');
+    const suggestedPassword = document.getElementById('suggestedPassword');
     const checkSuggestedPassword = document.getElementById('checkSuggestedPassword');
 
     suggestedPassword.addEventListener("copy", (event) => {
