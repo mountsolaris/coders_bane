@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+</head>
+<body>
+
+<form id="courseForm">
+    <input type="radio" id="short-course" name="courses"/>
+    <label for="short-course">Coding Bootcamp for the Most Gifted (6 months)</label>
+    <input type="radio" id="medium-course" name="courses"/>
+    <label for="medium-course">Coding School for People with Nothing to Do (12 months)</label>
+    <input type="radio" id="long-course" name="courses"/>
+    <label for="long-course">Coding University for Everyone (24 Months)</label>
+    <input type="radio" id="quick-course" name="courses"/>
+    <label for="quick-course">Introduction to Coding (1 Week)</label>
+
+    <button id="startTimer">Select</button>
+    <button id="endTimer">Stop</button>
+
+</form>
+
+<div id="yourCourse"><p>Select the duration that best fits your needs.</p></div>
+<textarea id="timeDisplay"></textarea>
+
+<p>You unsure? Create your account and decide later.</p>
+
+<form id="registerForm">
+    <p>No need for password123 or remembering your aunt's wedding day. For your convenience we've added a custom
+        password generator.</p>
+    <label for="username">Select whichever username (he/her/they) you like.</label>
+    <input type="text" id="username" required/>
+    <label for="suggestedPassword">Generate a secure password here</label>
+    <input type="text" id="suggestedPassword" size="30" required/>
+    <button id="generatePassword">Generate new password</button>
+    <label for="checkSuggestedPassword">Re-enter your password to confirm.</label>
+    <input type="text" id="checkSuggestedPassword" size="30 " required/>
+
+    <button type="submit" id="welcome">Welcome to Coders'Bane!</button>
+</form>
+
+</body>
+
+<script>
+
+    // ---- START & END TIMER ---- //
+
+    const startTimer = document.getElementById('startTimer');
+    const endTimer = document.getElementById('endTimer');
+    const courseForm = document.getElementById('courseForm');
+
+    let interval;
+
+    startTimer.addEventListener('click', (e) => {
+        e.preventDefault();
+        yourCourse.textContent = 'The duration of your course will be:';
+        clearInterval();
+        counter();
+        // startTimer.classlist.add('d-none');
+        // endTimer.classlist.remove('d-none');
+    });
+
+    function counter() {
+        const startTime = Date.now();
+        interval = setInterval(() => {
+            let elapsedTime = Date.now() - startTime;
+
+            // Umrechnung in Stunden, Minuten, Sekunden und Millisekunden
+            const hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+            const minutes = Math.floor(elapsedTime / (1000 * 60)) % 60;
+            const seconds = Math.floor(elapsedTime / 1000) % 60;
+            // const milliseconds = elapsedTime % 1000;
+
+            // Text aktualisieren
+            timeDisplay.textContent = `${hours}h ${minutes}m ${seconds}s`;
+        }, 100);
+
+    };
+
+
+    endTimer.addEventListener('click', () => {
+        timeDisplay.textContent += " is not a valid duration. Select 6, 12 or 24 months."
+        clearInterval(interval);
+        interval = null;
+    });
+
+    // ---- DISPLAY TIMER ---- //
+
+    const yourCourse = document.getElementById('yourCourse');
+    const timeDisplay = document.getElementById('timeDisplay');
+
+    courseForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+    });
+
+    // ---- REGISTER FORM ---- //
+
+    const registerForm = document.getElementById('registerForm');
+
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+    });
+
+        const suggestedPassword = document.getElementById('suggestedPassword');
+    const checkSuggestedPassword = document.getElementById('checkSuggestedPassword');
+
+    suggestedPassword.addEventListener("copy", (event) => {
+        event.preventDefault();
+        alert("Copying is not allowed in this field.");
+    });
+
+    suggestedPassword.addEventListener("cut", (event) => {
+        event.preventDefault();
+        alert("Cutting is not allowed in this field.");
+    });
+
+    suggestedPassword.addEventListener("paste", (event) => {
+        event.preventDefault();
+        alert("Pasting is not allowed in this field.");
+    });
+
+    checkSuggestedPassword.addEventListener('click', (e) => {
+        e.preventDefault();
+        let password = suggestedPassword.value;
+        console.log(password);
+        suggestedPassword.value = '********************';
+    });
+
+    checkSuggestedPassword.addEventListener("paste", (event) => {
+        event.preventDefault();
+        alert("Pasting is not allowed in this field.");
+    });
+
+
+</script>
+
+
+</html>

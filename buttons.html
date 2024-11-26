@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buttons</title>
+</head>
+<body>
+<button id="delayedButton" disabled>Warten...</button>
+
+<button id="delayedButtonCount" disabled>In 10 Sekunden aktiv...</button>
+
+<script>
+    const button = document.getElementById("delayedButton");
+
+    // Button nach 10 Sekunden aktivieren
+    setTimeout(() => {
+        button.disabled = false;
+        button.textContent = "Jetzt klicken!";
+    }, 10000); // 10 Sekunden (10000 Millisekunden)
+
+    const buttonCount = document.getElementById("delayedButtonCount");
+    let secondsLeft = 10;
+
+    // Countdown anzeigen
+    const interval = setInterval(() => {
+        secondsLeft--;
+        buttonCount.textContent = `In ${secondsLeft} Sekunden aktiv...`;
+
+        if (secondsLeft <= 0) {
+            clearInterval(interval); // Countdown stoppen
+            buttonCount.disabled = false; // Button aktivieren
+            buttonCount.textContent = "Jetzt klicken!";
+        }
+    }, 1000); // Jede Sekunde aktualisieren
+</script>
+
+</body>
+</html>

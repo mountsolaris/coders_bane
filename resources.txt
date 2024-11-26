@@ -16,6 +16,9 @@ function myFunction() {
 }
 setTimeout(myFunction, 3000);
 
+NAUS
+https://www.w3schools.com/cssref/pr_class_cursor.php
+
 STOPPUHR
 https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/Timer_und_Countdown
 
@@ -42,3 +45,64 @@ d-none d-md und aufwärts im block
 
 TURNSTILE CAPTCHA
 512x109
+
+
+COPYPASTEVERBOTEN
+<input type="text" id="noCopyPaste" placeholder="Kein Copy-Paste möglich">
+
+<script>
+  const inputField = document.getElementById("noCopyPaste");
+
+  inputField.addEventListener("copy", (event) => {
+    event.preventDefault();
+    alert("Kopieren ist nicht erlaubt!");
+  });
+
+  inputField.addEventListener("paste", (event) => {
+    event.preventDefault();
+    alert("Einfügen ist nicht erlaubt!");
+  });
+
+  inputField.addEventListener("cut", (event) => {
+    event.preventDefault();
+    alert("Ausschneiden ist nicht erlaubt!");
+  });
+</script>
+
+
+DATUMSDIFFERENZ
+
+<form id="myForm">
+  <label for="datetime">Datum und Uhrzeit:</label>
+  <input type="datetime-local" id="datetime" name="datetime">
+  <button type="button" id="calculateBtn">Abstand berechnen</button>
+</form>
+
+<script>
+  const calculateButton = document.getElementById("calculateBtn");
+
+  calculateButton.addEventListener("click", () => {
+    const datetimeInput = document.getElementById("datetime").value;
+
+    if (!datetimeInput) {
+      alert("Bitte ein Datum und eine Uhrzeit eingeben!");
+      return;
+    }
+
+    const inputDate = new Date(datetimeInput);
+    const now = new Date();
+
+    const diffMilliseconds = inputDate - now;
+    const diffSeconds = Math.floor(diffMilliseconds / 1000);
+    const diffMinutes = Math.floor(diffSeconds / 60);
+    const diffHours = Math.floor(diffMinutes / 60);
+    const diffDays = Math.floor(diffHours / 24);
+
+    alert(`Abstand:
+    - Millisekunden: ${diffMilliseconds}
+    - Sekunden: ${diffSeconds}
+    - Minuten: ${diffMinutes}
+    - Stunden: ${diffHours}
+    - Tage: ${diffDays}`);
+  });
+</script>

@@ -19,8 +19,24 @@
         </div>
         <button class="btn btn-primary mt-3" id="mybutton">Knopf</button>
     </form>
-
     <div class="row-cols-4" id="divdiv"></div>
+    <form id="dateForm">
+
+
+        <label for="datetime">Wähle Datum und Zeit:</label>
+        <input type="datetime-local" id="datetime" name="datetime">
+        <button type="button" id="submitBtn">Senden</button>
+    </form>
+
+    <label for="numberInput">Zahl eingeben:</label>
+    <input type="number" id="numberInput" name="numberInput" min="1" max="100" step="0.1">
+
+    <label for="age">Alter:</label>
+    <input type="number" id="age" name="age" min="18" max="99" step="1" value="18">
+
+    <button id="counterButton">Zähler erhöhen</button>
+    <p>Zähler: <span id="counter">0</span></p>
+
 </div>
 
 <div class="container">
@@ -44,6 +60,29 @@
             divdiv.textContent = data;
         })
         .catch(error => console.error('Fehler beim Laden der Datei:', error));
+
+    const submitButton = document.getElementById("submitBtn");
+let datetimeInput = Date();
+    submitButton.addEventListener("click", () => {
+        datetimeInput = document.getElementById("datetime").value;
+        console.log("Eingegebenes Datum und Uhrzeit:", datetimeInput);
+
+        // Verarbeitung
+        const datetimeObject = new Date(datetimeInput);
+        console.log("Umgewandelt in JavaScript Date-Objekt:", datetimeObject);
+    });
+
+    const counterButton = document.getElementById("counterButton");
+    const counterDisplay = document.getElementById("counter");
+
+    let counter = 0;
+
+    counterButton.addEventListener("click", () => {
+        counter++;
+        counterDisplay.textContent = counter; // Aktualisiert den Zähler
+    });
+
+    console.log(datetimeInput);
 </script>
 </body>
 </html>
