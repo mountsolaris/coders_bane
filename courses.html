@@ -35,7 +35,7 @@
     <input type="text" id="username" required/>
     <label for="suggestedPassword">Generate a secure password here</label>
     <input type="text" id="suggestedPassword" size="30" readonly required/>
-    <button id="generatePassword">Generate new password</button>
+    <button id="generatorButton">Generate new password</button>
     <label for="checkSuggestedPassword">Re-enter your password to confirm.</label>
     <input type="text" id="checkSuggestedPassword" size="30 " required/>
 
@@ -82,7 +82,7 @@
 
 
     endTimer.addEventListener('click', () => {
-        timeDisplay.textContent += " is not a valid duration. Select 6, 12 or 24 months."
+        timeDisplay.textContent += " is not a valid duration. Please stay in line for 6, 12 or 24 months."
         clearInterval(interval);
         interval = null;
     });
@@ -99,13 +99,52 @@
     // ---- REGISTER FORM ---- //
 
     const registerForm = document.getElementById('registerForm');
+    const usernameInput = document.getElementById('username');
+    const emailInput = document.getElementById('email');
 
+    let password;
+    let username;
+    let email;
     registerForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        username = usernameInput.value;
+        email = emailInput.value;
+        if (passwordMatch()) {
+            console.log('Anmeldung erfolgreich.')
+        }
     });
+
+    // ---- PASSWORD GENERATOR ---- //
+
+    const generatorButton = document.getElementById('generatorButton');
+
+    const characterArray = [];
+
+
+    function generator() {
+        for (let i = 0; i < 20; i++) {
+            const number = Math.floor(Math.random() * (123 - 35) + 35);
+            characterArray.push(number);
+        }
+        password = String.fromCharCode(...characterArray);
+        return password;
+    }
+
+    generatorButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        let newPassword = generator();
+        password = newPassword;
+        suggestedPassword.value = newPassword;
+        characterArray.splice(0);
+
+
+    });
+
+    // ---- CHECK PASSWORD ---- //
 
     const suggestedPassword = document.getElementById('suggestedPassword');
     const checkSuggestedPassword = document.getElementById('checkSuggestedPassword');
+
 
     suggestedPassword.addEventListener("copy", (event) => {
         event.preventDefault();
@@ -122,17 +161,19 @@
         alert("Pasting is not allowed in this field.");
     });
 
-    checkSuggestedPassword.addEventListener('click', (e) => {
+    checkSuggestedPassword.addEventListener('input', (e) => {
         e.preventDefault();
-        let password = suggestedPassword.value;
-        console.log(password);
         suggestedPassword.value = '********************';
     });
 
-    checkSuggestedPassword.addEventListener("paste", (event) => {
-        event.preventDefault();
-        alert("Pasting is not allowed in this field.");
-    });
+
+    function passwordMatch() {
+        if (password === checkSuggestedPassword.value) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 </script>

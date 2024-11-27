@@ -106,3 +106,28 @@ DATUMSDIFFERENZ
     - Tage: ${diffDays}`);
   });
 </script>
+
+
+FECTH
+
+// Pfad zur TXT-Datei
+const txtFilePath = 'example.txt';
+
+// Element, in das der Inhalt eingefügt werden soll
+const textContainer = document.getElementById('text-container');
+
+// Lade die TXT-Datei
+fetch(txtFilePath)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+        }
+        return response.text(); // Inhalt der Datei als Text
+    })
+    .then(text => {
+        // Füge den Text in das HTML-Element ein
+        textContainer.innerHTML = text;
+    })
+    .catch(error => {
+        console.error('Fehler beim Laden der Datei:', error);
+    });
