@@ -8,16 +8,35 @@
 </head>
 <body>
 <div class="container-fluid vh-100 d-none d-md-flex flex-column bg-success">
-    <div class="row bg-warning" style="height:200px">
-        <div class="col-12">Huh</div>
+
+    <div class="row bg-warning" style="height:80px">
+        <div class="col-12 px-0">
+            <iframe src="top.html" class="w-100 h-100 border-1"></iframe>
+        </div>
     </div>
     <div class="row flex-grow-1 bg-secondary">
-        <div class="col-12">Huh</div>
+        <div class="col-12 px-0">
+
+            <iframe src="main.html" class="w-100 h-100 border-1"></iframe>
+        </div>
     </div>
-    <div class="row bg-body-tertiary" style="height:50px">
-        <div class="col-12">Huh</div>
+    <div class="row bg-body-tertiary" style="height:100px; overflow: hidden;">
+        <div class="col-12 px-0">
+            <iframe src="navigation.html" class="w-100 h-100 border-1"></iframe>
+        </div>
     </div>
 </div>
+
+<!--<div id="cookieAlert" class="position-fixed d-none d-md-flex     top-50 start-50 translate-middle text-bg-light p-5 border-2 shadow-lg rounded bg-light bg-opacity-25 d-flex align-items-center justify-content-center" style="backdrop-filter: blur(5px); ">-->
+   <div class="text-center text-dark">
+       <h1>Cookie-Alert!!</h1>
+    <p>We use cookies to <s>improve</s> your browsing experience and to figure out if you're worthy to enter CODERS'BANE. By continuing, you accept that cookies are a thing. No cheating. No avoiding. Accept your fate.</p>
+       <div id="cookieArea" class="p-4 mb-5" style="font-size:24px; min-height: 120px;">🍪</div>
+       <button id="addCookie" class="btn btn-warning">Accept a Cookie</button>
+       <button id="acceptAllCookies" class="btn btn-warning" disabled>Accept all Cookies</button>
+      </div>
+</div>
+
 
 <div id="responsive" class="container-fluid vh-100 d-md-none">
     <p style="font-family: 'Bauhaus 93'; font-size: 40px; color: orange;">Y U NO HAVE DEKSTOP?!</p>
@@ -43,6 +62,9 @@
     <img src="images/laptop-3.png" class="img-thumbnail w-25"/>
     <p style="font-family: 'Times New Roman'; color: darkgreen">IMHMMM NEED HLEP PLS STAHP o_O</p>
     <p style="font-family: 'bauhaus 93'; color: darkred">buy laptop loser</p>
+    <h2 style="font-family: 'Comic Sans MS'; color: darkorange">u wanna buy dektstop pc??!</h2>
+    <img src="images/mega-sale.png" class="img-thumbnail w-50"/>
+    <p style="font-family: 'Algerian'; color: blue; font-size: 30px;"><i>HODL HERE PLS!!</i></p>
 
 
 </div>
@@ -51,9 +73,35 @@
 
     const responsiveElement = document.getElementById('responsive');
     responsiveElement.addEventListener('mousemove', () => {
-responsiveElement.style.cursor = 'grab';
+        responsiveElement.style.cursor = 'grab';
     });
 
+    const fakeLinks = document.querySelector('u');
+    fakeLinks.addEventListener('mouseover', () => {
+        fakeLinks.style.cursor = 'pointer';
+    });
+
+    const cookieAlert = document.getElementById('cookieAlert');
+    const cookieArea = document.getElementById('cookieArea');
+    const addCookie = document.getElementById('addCookie');
+    const acceptAllCookies = document.getElementById('acceptAllCookies');
+
+    let cookieCount = 0;
+
+    addCookie.addEventListener('click', () => {
+        cookieArea.textContent += '🍪'
+        cookieCount++;
+
+        if (cookieCount >= 32) {
+            acceptAllCookies.disabled = false;
+            addCookie.disabled = true;
+        }
+    });
+
+    acceptAllCookies.addEventListener('click', () => {
+        cookieAlert.classList.toggle('d-md-flex');
+        console.log('Alles akzeptiert!')
+    })
 
 </script>
 </body>

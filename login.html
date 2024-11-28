@@ -1,145 +1,246 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        .video-background {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Login</title>
 </head>
 <body>
-<form id="loginForm">
-    <label for="username">Enter Username</label>
-    <input type="password" id="username" required/>
-    <label for="password">Enter Password</label>
-    <input type="text" id="password" required/>
 
-    <label for="reasonToEnter">Please specify why you want to login. Select exactly five reasons. Don't cheat.</label>
-    <select id="reasonToEnter" multiple size="2">
-        <option>This doesn't work!</option>
-    </select>
-<!--    <button type="button" onclick="validateSelection()">Submit</button>-->
-    <p id="output"></p>
-    <label for="loginDate">When do you want to log in?</label>
-    <div id="loginDateGiven"><input type="datetime-local" id="loginDate" required/></div>
+<div class="container-fluid video-background opacity-75 min-vh-100">
+    <video autoplay muted loop>
+        <source src="videos/background-typing.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="row">
+        <div class="col content">
+            <h1>🔥 LOGIN! 🔥</h1>
+            <h2 style="color:#ffc720" ;>&lt;/&gt;</h2>
+            <h3>We know many login. We have the best login!</h3>
+            <div class="container mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 d-flex flex-column justify-content-center align-items-center">
+                        <form class="text-center needs-validation" novalidate id="loginForm">
+                            <legend class="form-label">Please enter your username or password.</legend>
+                            <div class="d-flex">
+                                <!-- Nothing -->
+                                <div class="mb-3 w-50">
+                                    <!--                                    <label for="nothing" class="form-label">Enter Username or Password</label>-->
+                                    <input type="text" readonly id="nothing" class="form-control w-75 mx-auto"/>
+                                </div>
+                                <!-- Username -->
+                                <div class="mb-3 w-50">
+                                    <!--                                    <label for="username" class="form-label">Enter Username or Password</label>-->
+                                    <input type="password" id="username" class="form-control w-75 mx-auto" required/>
+                                </div>
+                                <!-- Password -->
+                                <div class="mb-3 w-50">
+                                    <!--                                    <label for="password" class="form-label">Enter Username or Password</label>-->
+                                    <input type="text" id="password" class="form-control w-75 mx-auto" required/>
+                                </div>
+                            </div>
+                            <!-- Reason to login -->
+                            <div class="mb-3 w-100 justify-content-center">
+                                <label for="reasonToEnter" class="form-label">
+                                    Please specify why you want to login. Select exactly five reasons. Don't cheat.
+                                </label>
+                                <select id="reasonToEnter" class="form-select w-75 mx-auto" multiple size="2" required>
+                                    <option>This doesn't work!</option>
+                                </select>
+                                <div id="output">Premium users: Select all reasons in Hindi.</div>
+                            </div>
+                            <div class="d-flex w-100 justify-content-around">
 
-    <label for="logoutDate">When do you want to log out?</label>
-    <input type="datetime-local" id="logoutDate" required/>
+                                <!-- Login date -->
+                                <div class="mb-3">
+                                    <label for="loginDate" class="form-label">When do you want to log in?</label>
+                                    <input type="datetime-local" id="loginDate" class="form-control w-75 mx-auto"
+                                           required/>
+                                </div>
 
-    <p>What do you identify as?</p>
-    <input type="radio" id="robot" name="identify" required>
-    <label for="robot">Robot (beep/beep)</label>
-    <input type="radio" id="human" name="identify" required>
-    <label for="humanoid">Humanoid (he/her)</label>
-    <input type="radio" id="insecure" name="identify" required>
-    <label for="insecure">Something fluid</label>
-    <input type="radio" id="consider" name="identify" required>
-    <label for="consider">I need to reconsider my humanity</label>
+                                <!-- Logout date -->
+                                <div class="mb-3">
+                                    <label for="logoutDate" class="form-label">When do you want to log out?</label>
+                                    <input type="datetime-local" id="logoutDate" class="form-control w-75 mx-auto"
+                                           required/>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mb-2">Please allow a minimum of 36 hours to process your demand!</div>
+                            <!-- Identify as -->
+                            <fieldset class="mb-3 w-100">
+                                <legend class="form-label">What do you identify as?</legend>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="robot" name="identify" class="form-check-input" required/>
+                                    <label for="robot" class="form-check-label">Robot (beep/beep)</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="human" name="identify" class="form-check-input" required/>
+                                    <label for="human" class="form-check-label">Humanoid (he/her)</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="insecure" name="identify" class="form-check-input"
+                                           required/>
+                                    <label for="insecure" class="form-check-label">Something fluid</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="consider" name="identify" class="form-check-input"
+                                           required/>
+                                    <label for="consider" class="form-check-label">I need to reconsider my
+                                        humanity</label>
+                                </div>
+                            </fieldset>
+                            <!-- Submit Button -->
+                            <div>
+                                <button id="submit" class="btn btn-primary">Login</button>
+                            </div>
+                            <!-- Questions -->
+                            <div class="mt-3 w-100">
+                                <p>
+                                    Don't click yet! Don't you have questions?
+                                </p>
 
-    <input type="text" id="questionBack" size="50" required/>
-    <label for="questionBack">Before we continue, do you have any questions?</label>
+                                <!-- Human verification -->
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" id="inhumane" class="form-check-input" required/>
+                                    <label for="inhumane" class="form-check-label">Am I even human?</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" id="helpme" class="form-check-input" required/>
+                                    <label for="helpme" class="form-check-label">Help me!</label>
 
-    <p>Now let's make sure that you're a human.</p>
-    <input type="checkbox" id="inhumane" required/>
-    <label for="inhumane">I am a human.</label>
+                                </div>
+                                </br>
 
-    <button id="submit">Absenden</button>
-</form>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-<script>
+        </div>
+    </div>
 
-    // ---- FORM BEHAVIOUR ---- //
 
-    const loginForm = document.getElementById('loginForm');
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const loginDate = document.getElementById('loginDate');
-        const user = document.getElementById('username');
+    <script>
 
-        if (validateSelection()) {
-            console.log('Hey ' + user.value + '! CU on ' + loginDate.value.slice(0, 10));
-        }
-    });
+        // ---- FORM BEHAVIOUR ---- //
 
-    // ---- FETCH OPTIONS ---- //
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', (e) => {
+            // Verhindere das Standardverhalten (Absenden)
+            e.preventDefault();
 
-    // Pfad zur TXT-Datei
-    const txtFilePath = 'options.txt';
-
-    // Element, in das der Inhalt eingefügt werden soll
-    const reasonToEnter = document.getElementById('reasonToEnter');
-
-    // Lade die TXT-Datei
-    fetch(txtFilePath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+            // Überprüfe die Validität des Formulars und die Auswahl
+            if (!loginForm.checkValidity() || !validateSelection()) {
+                e.stopPropagation();
+                loginForm.classList.add('was-validated'); // Zeige Fehler an
+                return; // Beende die Funktion bei Fehlern
             }
-            return response.text(); // Inhalt der Datei als Text
-        })
-        .then(text => {
-            // Füge den Text in das HTML-Element ein
-            reasonToEnter.innerHTML = text;
-        })
-        .catch(error => {
-            console.error('Fehler beim Laden der Datei:', error);
+
+            // Wenn alle Felder gültig sind, ersetze den Formularinhalt
+            loginForm.classList.add('was-validated'); // Für konsistentes Feedback
+            const loginDate = document.getElementById('loginDate');
+            const user = document.getElementById('username');
+
+            // Personalisierten Text anzeigen
+            loginForm.innerHTML = 'Hi ' + user.value + '! See you on ' + loginDate.value.slice(0, 10);
         });
 
 
-    // ---- MAKE SURE DROPDOWN ELEMENTS TRUE ---- //
+        // ---- FETCH OPTIONS ---- //
 
-    function validateSelection() {
-        const select = document.getElementById("reasonToEnter");
-        const selectedOptions = Array.from(select.selectedOptions); // Get all selected options
-        const numberOfSelected = selectedOptions.length;
+        // Pfad zur TXT-Datei
+        const txtFilePath = 'options.txt';
 
-        if (numberOfSelected === 5) {
-            // document.getElementById("output").textContent = 'Thank you.'
-            return true;
-        } else if (numberOfSelected < 3) {
-            document.getElementById("output").textContent =
-                `You need to select exactly five options. You selected only ${numberOfSelected}.`;
-            return false;
-        } else {
-            document.getElementById("output").textContent =
-                `Too many selections! You chose ${numberOfSelected}, but only five are allowed.`;
-            return false;
+        // Element, in das der Inhalt eingefügt werden soll
+        const reasonToEnter = document.getElementById('reasonToEnter');
+
+        // Lade die TXT-Datei
+        fetch(txtFilePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+                }
+                return response.text(); // Inhalt der Datei als Text
+            })
+            .then(text => {
+                // Füge den Text in das HTML-Element ein
+                reasonToEnter.innerHTML = text;
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Datei:', error);
+            });
+
+
+        // ---- MAKE SURE DROPDOWN ELEMENTS TRUE ---- //
+
+        function validateSelection() {
+            const select = document.getElementById("reasonToEnter");
+            const selectedOptions = Array.from(select.selectedOptions); // Get all selected options
+            const numberOfSelected = selectedOptions.length;
+
+            if (numberOfSelected === 5) {
+                // document.getElementById("output").textContent = 'Thank you.'
+                return true;
+            } else if (numberOfSelected < 5) {
+                document.getElementById("output").textContent =
+                    `You need to select exactly five options. You selected only ${numberOfSelected}.`;
+                return false;
+            } else {
+                document.getElementById("output").textContent =
+                    `Too many selections! You chose ${numberOfSelected}, but only five are allowed.`;
+                return false;
+            }
         }
-    }
-
-    // ---- FUNCTION FOR QUESTION BACK ---- //
-
-    const questionBack = document.getElementById('questionBack');
-    const targetQuestion = 'Please tell me when this mental horrorshow will be over!'
-    let stringIndex = 0;
-    questionBack.addEventListener('keydown', (e) => {
-        e.preventDefault();
-        if (stringIndex < targetQuestion.length) {
-            questionBack.value += targetQuestion[stringIndex];
-            stringIndex++;
-        }
-    });
 
 
-    // ---- DATE AND TIME ---- //
+        // ---- DATE AND TIME ---- //
 
 
-    const loginDate = document.getElementById('loginDate');
-    const logoutDate = document.getElementById('logoutDate');
+        const loginDate = document.getElementById('loginDate');
+        const logoutDate = document.getElementById('logoutDate');
 
-    const futureLoginTimeMinimum = new Date(Date.now() + 1000 * 3600 * 24);
-    const futureLoginTimeMaximum = new Date(futureLoginTimeMinimum.getTime() + 1000 * 3600 * 72);
+        const futureLoginTimeMinimum = new Date(Date.now() + 1000 * 3600 * 36);
+        const futureLoginTimeMaximum = new Date(futureLoginTimeMinimum.getTime() + 1000 * 3600 * 120);
 
-    const futureLogoutTimeMinimum = new Date(futureLoginTimeMaximum.getTime() + 1000 * 3600);
-    const futureLogoutTimeMaximum = new Date(futureLogoutTimeMinimum.getTime() + 1000 * 3600 * 24);
+        const futureLogoutTimeMinimum = new Date(futureLoginTimeMaximum.getTime() + 1000 * 3600 * 24);
+        const futureLogoutTimeMaximum = new Date(futureLogoutTimeMinimum.getTime() + 1000 * 3600 * 72);
 
-    console.log(futureLoginTimeMinimum + futureLoginTimeMaximum);
-    console.log(futureLogoutTimeMinimum + futureLogoutTimeMaximum);
+        console.log(futureLoginTimeMinimum + futureLoginTimeMaximum);
+        console.log(futureLogoutTimeMinimum + futureLogoutTimeMaximum);
 
-    loginDate.min = futureLoginTimeMinimum.toISOString().slice(0, 16);
-    loginDate.max = futureLoginTimeMaximum.toISOString().slice(0, 16);
-    logoutDate.min = futureLogoutTimeMinimum.toISOString().slice(0, 16);
-    logoutDate.max = futureLogoutTimeMaximum.toISOString().slice(0, 16);
+        loginDate.min = futureLoginTimeMinimum.toISOString().slice(0, 16);
+        loginDate.max = futureLoginTimeMaximum.toISOString().slice(0, 16);
+        logoutDate.min = futureLogoutTimeMinimum.toISOString().slice(0, 16);
+        logoutDate.max = futureLogoutTimeMaximum.toISOString().slice(0, 16);
 
 
-</script>
+    </script>
 </body>
 </html>
