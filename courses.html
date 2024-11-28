@@ -100,15 +100,10 @@
 
                 <div id="registerCard" class="card bg-dark text-white bg-opacity-50 w-50 p-4">
                     <div class="card-header text-center p-2">
-                        <h4 class="card-title">Register here!</h4>
+                        <h4 class="card-title">Sign up here!</h4>
                     </div>
                     <div class="card-body">
                         <form id="registerForm" class="needs-validation p-0" novalidate>
-                            <!-- Info Text -->
-                            <p class="text-white">
-                                No need for password123 or remembering your aunt's wedding day. For your convenience,
-                                we've added a custom password generator.
-                            </p>
 
                             <!-- Email -->
                             <div class="mb-3">
@@ -117,12 +112,37 @@
                                 <div class="invalid-feedback">Please provide a valid email address.</div>
                             </div>
 
+                            <!-- Gender -->
+                            <div class="mb-3">
+                                <fieldset>
+                                    <p>Please select your gender</p>
+                                    <div class="form-check-inline">
+                                        <input type="radio" id="male" name="gender" value="male" class="form-check-input" required>
+                                        <label for="male" class="form-check-label">Male</label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <input type="radio" id="female" name="gender" value="female" class="form-check-input" required>
+                                        <label for="female" class="form-check-label">Female</label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <input type="radio" id="other" name="gender" value="other" class="form-check-input" required>
+                                        <label for="other" class="form-check-label">Other</label>
+                                    </div>
+                                    <div class="invalid-feedback" id="wrongGender">A user with this gender already exists. Choose another.</div>
+                                </fieldset>
+                            </div>
+
                             <!-- Username -->
                             <div class="mb-3">
                                 <label for="username" class="form-label">Select whichever username (he/her/they) you
                                     like</label>
                                 <input type="text" id="username" class="form-control" required/>
                             </div>
+                            <!-- Info Text -->
+                            <p class="text-white">
+                                No need for password123 or remembering your aunt's wedding day. For your convenience,
+                                we've added a custom password generator.
+                            </p>
 
                             <!-- Password Generator -->
                             <div class="mb-3">
@@ -235,8 +255,11 @@
         if (!passwordMatch()) {
             checkSuggestedPassword.classList.add('is-invalid');
         }
+        if (!checkGender()) {
+            genderError.style.display = "block";
+        }
 
-        if (emailInput.checkValidity && passwordMatch()) {
+        if (emailInput.checkValidity && passwordMatch() && checkGender()) {
             console.log('Anmeldung erfolgreich.');
             document.getElementById('registerCard').classList.toggle('d-none');
             document.getElementById('courseCard').classList.toggle('d-none');
@@ -251,7 +274,7 @@
 
 
     function generator() {
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 20; i++) {
             const number = Math.floor(Math.random() * (123 - 35) + 35);
             characterArray.push(number);
         }
@@ -265,9 +288,23 @@
         password = newPassword;
         suggestedPassword.value = newPassword;
         characterArray.splice(0);
-
-
     });
+
+    // ---- CHECK GENDER INPUT ----//
+
+        const male = document.getElementById("male");
+        const female = document.getElementById("female");
+        const genderError = document.getElementById("wrongGender");
+
+    function checkGender() {
+        if (male.checked || female.checked) {
+            return false;
+        } else {
+            genderError.style.display = "none";
+            console.log('richtig');
+            return true;
+        }
+    }
 
     // ---- CHECK PASSWORD ---- //
 

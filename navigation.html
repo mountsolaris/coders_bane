@@ -6,19 +6,49 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Navigation Element</title>
 </head>
-<body style="background-color: #0a53be">
-<div class="container d-flex bg-warning justify-content-center p-0 mb-0" style="height:100px;">
-    <div class="row row-cols-4 justify-content-around g-5">
-        <div class="col bg-primary text-white text-center w-auto">
-            <div style="height: 80px; width: 100px;">blabla</div>
+<body style="background-color: black">
+<div class="container d-flex justify-content-center p-0 mb-0" style="height:100px;">
+    <div class="row row-cols-4 justify-content-around">
+        <div class="col bg-primary text-white text-center w-auto p-0 mb-0">
+            <a href="courses.html" target="main">
+                <img src="images/courses.png" class="img-fluid">
+                <p>click here</p>
+            </a>
         </div>
-        <div class="col bg-info text-white text-center w-auto">
-            blabla
+        <div class="col bg-secondary text-white text-center w-auto p-0 mb-0">
+            <a href="main.html" target="main">
+                <img src="images/home.png" class="img-fluid">
+                <p>click here</p>
+            </a>
         </div>
-        <div class="col bg-danger text-white text-center w-auto">
-            blabla
+        <div class="col bg-danger text-white text-center w-auto p-0 mb-0">
+            <a href="login.html" target="main">
+                <img src="images/login.png" class="img-fluid">
+                <p>click here</p>
+            </a>
+        </div>
+        <div class="col bg-black text-white text-center w-auto p-0 mb-0">
+            <a href="randomizer.html" target="main">
+                <img src="images/unknown.png" class="img-fluid">
+                <p>click here</p>
+            </a>
+        </div>
+        <div class="col bg-secondary-light text-white text-center w-auto p-0 mb-0">
+            <button id="counter" class="btn btn-warning rounded mt-2">Register</button>
+
         </div>
     </div>
 </div>
+<script>
+
+    let clickCount = 0;
+    document.getElementById('counter').addEventListener("click", () => {
+        clickCount++;
+        setTimeout(() => {
+            window.alert(`We have registered that you have clicked ${clickCount} times.`);
+        }, 7000);
+    });
+
+</script>
 </body>
 </html>

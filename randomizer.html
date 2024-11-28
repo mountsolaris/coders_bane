@@ -8,9 +8,12 @@
 </head>
 <body>
 <div class="container vw-100 vh-100 d-flex justify-content-center align-items-center" id="body">
-    <div class="6 justify-content-center text-center">
+<div>
         <div class="text-center d-none" id="welcome"><h1>Welcome!</h1>
-            <h2>All Hail The Robot Overlords!</h2></div>
+            <h2>All Hail The Robot Overlords!</h2>
+        <p>Congratulations. The Secret Of CODERS'BANE is right behind this square.</p>
+            <div id="black" style="width: 150px; height: 50px; background-color: black; margin: 0 auto;"></div>
+        </div>
         <form class="text-center" id="captcha">
             <h1>Please prove you're a human!</h1>
             <p>Enter the text displayed in the image to prove you're not a robot.</p>
@@ -20,7 +23,7 @@
             <input id="textfeld" class="form-control mb-3" placeholder="Insert Text"/>
                         <button type="submit" class="btn btn-primary align-self-center">Submit</button>
         </form>
-    </div>
+</div>
 </div>
 
 <script>
@@ -77,24 +80,27 @@
          } else if (attempts < 20) {
             textfeld.value = '';
             textfeld.classList.add('is-invalid');
-//          alert('Wrong!!')
             shufflePictures();
         } else {
-            alert('ende der durchsage');
+             alert('Please leave this site.');
         }
 
         if (trollNumber === trollInput) {
             attempts = 0;
-            captchaForm.classList.add('d-none');
-            body.classList.add('bg-warning');
-            welcome.classList.remove('d-none');
-
+             captchaForm.classList.add('d-none');
+             body.classList.add('bg-warning');
+             welcome.classList.remove('d-none');
         }
         textfeld.value = '';
     });
 
     window.addEventListener('DOMContentLoaded', () => {
         shufflePictures();
+    });
+
+    const blackbox = document.getElementById('black');
+    blackbox.addEventListener('mouseover', (e) => {
+        blackbox.style.cursor = 'none';
     });
 </script>
 </body>
