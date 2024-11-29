@@ -76,7 +76,7 @@
                                 <select id="reasonToEnter" class="form-select w-75 mx-auto" multiple size="2" required>
                                     <option>This doesn't work!</option>
                                 </select>
-                                <div id="output">Premium users: Select all reasons in Hindi.</div>
+                                <div id="output"></div><div>Premium users: Select all reasons in Hindi.</div>
                             </div>
 
                             <!-- Login & Logout date -->
@@ -203,7 +203,6 @@
             const numberOfSelected = selectedOptions.length;
 
             if (numberOfSelected === 5) {
-                // document.getElementById("output").textContent = 'Thank you.'
                 return true;
             } else if (numberOfSelected < 5) {
                 document.getElementById("output").textContent =
