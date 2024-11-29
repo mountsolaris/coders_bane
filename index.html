@@ -16,11 +16,10 @@
     </div>
     <div class="row flex-grow-1 bg-secondary">
         <div class="col-12 px-0">
-
             <iframe name="main" src="main.html" class="w-100 h-100 border-1"></iframe>
         </div>
     </div>
-    <div class="row bg-body-tertiary" style="height:80px; overflow: hidden;">
+    <div class="row bg-body-tertiary" id="navi" style="height:80px; overflow: hidden;">
         <div class="col-12 px-0">
             <iframe name="bottom" src="navigation.html" class="w-100 h-100 border-1"></iframe>
         </div>
@@ -80,6 +79,8 @@
     fakeLinks.addEventListener('mouseover', () => {
         fakeLinks.style.cursor = 'pointer';
     });
+
+
 
     const cookieAlert = document.getElementById('cookieAlert');
     const cookieArea = document.getElementById('cookieArea');
