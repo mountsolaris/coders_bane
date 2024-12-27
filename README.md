@@ -1,15 +1,15 @@
 # CODERS'BANE
 
-CODERS'BANE is my entry for a Bad UI Challenge as part of my developer training. The goal was to create a website that is as counterintuitive and user-unfriendly as possible – while still being fully functional.
+CODERS'BANE is my entry for a Bad UI Challenge as part of my developer training at CODERS.BAY Vienna . The goal was to create a website that is as counterintuitive and user-unfriendly as possible – while still being fully functional.
 
 ---
 
 ## Project Description
 CODERS'BANE is a parody of software bootcamps and features a mix of:
-- **Outdated designs**: Frames, modernized as iframes.
-- **Unsettling modern features**: e.g., background videos and a password generator.
+- **Outdated designs**: Frames like it's 1999. Well, almost. I've used iframes, but all the good downsides (scroll bar?!) remain.
+- **Unsettling features**: e.g., a not-quite-beautiful background video and an animated GIF that just won't go away.
 
-The website combines bad UI and UX to create a disturbing and irritating user experience. However, all forms on the site can be successfully submitted – functionality is a key aspect of this project.
+The website creates a mildly disturbing and irritating user experience. However, all forms on the site can be successfully submitted – functionality is a key aspect of this project.
 
 ---
 
@@ -17,20 +17,25 @@ The website combines bad UI and UX to create a disturbing and irritating user ex
 - **Bad UI and Bad UX combined:** 
   - The goal was not just to create an inconvenient site but also a deeply unsettling experience.
 - **Frames reimagined:** 
-  - Frames were modernized and implemented as iframes.
+  - Noone should use frames so of course I have implemented them as iframes.
 - **Fully functional and bug-free:** 
-  - All forms work flawlessly.
-- **Basic Bootstrap:** 
-  - The design is based on Bootstrap without using Bootstrap JS.
-- **Inline JavaScript:** 
-  - All scripts are embedded directly within the HTML files, contrary to common best practices.
-
+  - All forms work "flawlessly" and are satisfyingly annoying.
+- **Random Password Generator**
+  - I prefer using an ASCII-based array of numbers and convert them to characters on the fly instead of defining an array of strings beforehand.
+- **Fully responsive**
+  - It works as intended on smaller screens.
+     
 ---
 
 ## Technologies
-- **HTML** (with embedded JavaScript)
+- **HTML**
+  - Notably so in the responsive version.
 - **CSS**
-- **Bootstrap** (for basic design)
+  - For background videos mostly.
+- **Bootstrap**
+  - The design is very generic so it just felt right to give it a little Bootstrap magic without getting entangled in Bootstrap JS.  
+- **JavaScript**
+  - Contrary to common best practice, there are no separate .js files. The features are exclusive to one document, so embedding them makes them easily accessible. 
 
 ---
 
@@ -44,7 +49,7 @@ The website combines bad UI and UX to create a disturbing and irritating user ex
 ---
 
 ## Why CODERS'BANE?
-The website demonstrates the importance of good UX/UI design. It serves as a cautionary example and an entertaining parody of bad design practices.
+The website demonstrates the importance of good UX/UI design via the lack of it. At worst, it serves as a cautionary example and an entertaining parody of bad design practices. At best, it will haunt you in your dreams And it's obviously a pun. 
 
 ---
 
