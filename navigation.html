@@ -41,6 +41,7 @@
 </div>
 <script>
 
+    // Every click is registered and it takes seven seconds for you to regret it.
     let clickCount = 0;
     document.getElementById('counter').addEventListener("click", () => {
         clickCount++;
@@ -48,7 +49,6 @@
             window.alert(`We have registered that you have clicked ${clickCount} times.`);
         }, 7000);
     });
-
 
 </script>
 </body>

@@ -1,4 +1,4 @@
- <option value="001">ゴーストがWi-Fiに住んでいて、ここに連れてきた。</option>
+        <option value="001">ゴーストがWi-Fiに住んでいて、ここに連れてきた。</option>
         <option value="002">내가 매트릭스에 있다고 생각해서 여기 왔어.</option>
         <option value="003">Мои друзья инопланетяне отправили меня сюда.</option>
         <option value="004">মোর বিড়াল আমাকে এখানে নিয়ে এসেছে।</option>

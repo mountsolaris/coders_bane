@@ -7,6 +7,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .video-background video {
             position: absolute;
             top: 50%;
@@ -16,6 +17,7 @@
             transform: translate(-50%, -50%);
             z-index: -1;
         }
+
         .content {
             position: relative;
             z-index: 1;
@@ -30,37 +32,39 @@
 </head>
 <body>
 
-    <div class="container-fluid video-background opacity-75 min-vh-100">
-        <video autoplay muted loop>
-            <source src="videos/background-typing.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="row">
-            <div class="col content">
-                              <h1>🔥 WELCOME TO CODERS'BANE! 🔥</h1>
-                <h2 style="color:#ffc720";>&lt;/&gt;</h2>
-<h3>                    Learn to code like a pro in the most unsettling bootcamp ever!</h3>
-                </br>
-                </br>
-                <figure class="text-center">
-                    <blockquote class="blockquote">
-                        <p>You grow. You code. You die. That's life.</p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer text-warning">
-                        Noki, JAVA Developer @ CODERS'BANE
-                    </figcaption>
-                </figure>
-                <br>
-                <h3>Register if you can!</h3>
-            </div>
+<div class="container-fluid video-background opacity-75 min-vh-100">
+    <video autoplay muted loop>
+        <source src="videos/background-typing.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="row">
+        <div class="col content">
+            <h1>🔥 WELCOME TO CODERS'BANE! 🔥</h1>
+            <h2 style="color:#ffc720" ;>&lt;/&gt;</h2>
+            <h3> Learn to code like a pro in the most unsettling bootcamp ever!</h3>
+            </br>
+            </br>
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <p>You grow. You code. You die. That's life.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer text-warning">
+                    Noki, JAVA Developer @ CODERS'BANE
+                </figcaption>
+            </figure>
+            <br>
+            <h3>Register if you can!</h3>
         </div>
     </div>
-    <script>
+</div>
+
+<script>
 
     document.addEventListener('beforeunload', (e) => {
-    e.preventDefault();
- window.alert('Huh!')
+        e.preventDefault();
+        window.alert('Huh!')
     });
-    </script>
+
+</script>
 </body>
 </html>

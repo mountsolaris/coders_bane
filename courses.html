@@ -109,18 +109,23 @@
                                 <fieldset>
                                     <p>Please select your gender</p>
                                     <div class="form-check-inline">
-                                        <input type="radio" id="male" name="gender" value="male" class="form-check-input" required>
+                                        <input type="radio" id="male" name="gender" value="male"
+                                               class="form-check-input" required>
                                         <label for="male" class="form-check-label">Male</label>
                                     </div>
                                     <div class="form-check-inline">
-                                        <input type="radio" id="female" name="gender" value="female" class="form-check-input" required>
+                                        <input type="radio" id="female" name="gender" value="female"
+                                               class="form-check-input" required>
                                         <label for="female" class="form-check-label">Female</label>
                                     </div>
                                     <div class="form-check-inline">
-                                        <input type="radio" id="other" name="gender" value="other" class="form-check-input" required>
+                                        <input type="radio" id="other" name="gender" value="other"
+                                               class="form-check-input" required>
                                         <label for="other" class="form-check-label">Other</label>
                                     </div>
-                                    <div class="invalid-feedback" id="wrongGender">A user with this gender already exists. Choose another.</div>
+                                    <div class="invalid-feedback" id="wrongGender">A user with this gender already
+                                        exists. Choose another.
+                                    </div>
                                 </fieldset>
                             </div>
 
@@ -130,6 +135,7 @@
                                     like</label>
                                 <input type="text" id="username" class="form-control" required/>
                             </div>
+
                             <!-- Info Text -->
                             <p class="text-white">
                                 No need for password123 or remembering your aunt's wedding day. For your convenience,
@@ -163,8 +169,6 @@
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -174,8 +178,8 @@
 </div>
 
 <script>
-    // ---- START & END TIMER ---- //
 
+    // In case you register successfully, you have to choose the duration of your stay. In real time.
     const startTimer = document.getElementById('startTimer');
     const endTimer = document.getElementById('endTimer');
     const courseForm = document.getElementById('courseForm');
@@ -198,13 +202,10 @@
         interval = setInterval(() => {
             let elapsedTime = Date.now() - startTime;
 
-            // Umrechnung in Stunden, Minuten, Sekunden und Millisekunden
             const hours = Math.floor(elapsedTime / (1000 * 60 * 60));
             const minutes = Math.floor(elapsedTime / (1000 * 60)) % 60;
             const seconds = Math.floor(elapsedTime / 1000) % 60;
-            // const milliseconds = elapsedTime % 1000;
 
-            // Text aktualisieren
             timeDisplay.textContent = `${hours}h ${minutes}m ${seconds}s`;
         }, 100);
 
@@ -219,8 +220,7 @@
         startTimer.classList.toggle('d-none');
     });
 
-    // ---- DISPLAY TIMER ---- //
-
+    // Displaying the timer
     const yourCourse = document.getElementById('yourCourse');
     const timeDisplay = document.getElementById('timeDisplay');
 
@@ -228,8 +228,7 @@
         e.preventDefault();
     });
 
-    // ---- REGISTER FORM ---- //
-
+    // Now let's make sure every information you entered is valid
     const registerForm = document.getElementById('registerForm');
     const usernameInput = document.getElementById('username');
     const emailInput = document.getElementById('email');
@@ -258,10 +257,8 @@
         }
     });
 
-    // ---- PASSWORD GENERATOR ---- //
-
+    // One variation of a password generator.
     const generatorButton = document.getElementById('generatorButton');
-
     const characterArray = [];
 
 
@@ -282,11 +279,10 @@
         characterArray.splice(0);
     });
 
-    // ---- CHECK GENDER INPUT ----//
-
-        const male = document.getElementById("male");
-        const female = document.getElementById("female");
-        const genderError = document.getElementById("wrongGender");
+    // Just to make sure you check on your privileges
+    const male = document.getElementById("male");
+    const female = document.getElementById("female");
+    const genderError = document.getElementById("wrongGender");
 
     function checkGender() {
         if (male.checked || female.checked) {
@@ -298,8 +294,7 @@
         }
     }
 
-    // ---- CHECK PASSWORD ---- //
-
+    // Make sure you don't forget your random password. For safety, it has to be entered manually.
     const suggestedPassword = document.getElementById('suggestedPassword');
     const checkSuggestedPassword = document.getElementById('checkSuggestedPassword');
 

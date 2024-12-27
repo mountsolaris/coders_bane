@@ -155,7 +155,7 @@
 
     <script>
 
-        // ---- FORM BEHAVIOUR ---- //
+        // The form behaves as you would expect
 
         const loginForm = document.getElementById('loginForm');
         loginForm.addEventListener('submit', (e) => {
@@ -175,7 +175,7 @@
         });
 
 
-        // ---- FETCH OPTIONS ---- //
+        // The many, many options are fetched from a .txt
 
         const txtFilePath = 'options.txt';
         const reasonToEnter = document.getElementById('reasonToEnter');
@@ -195,11 +195,11 @@
             });
 
 
-        // ---- MAKE SURE DROPDOWN ELEMENTS TRUE ---- //
+        // As you would expect, we need to make sure the chosen options meet the criteria
 
         function validateSelection() {
             const select = document.getElementById("reasonToEnter");
-            const selectedOptions = Array.from(select.selectedOptions); // Get all selected options
+            const selectedOptions = Array.from(select.selectedOptions);
             const numberOfSelected = selectedOptions.length;
 
             if (numberOfSelected === 5) {
@@ -216,8 +216,7 @@
         }
 
 
-        // ---- DATE AND TIME ---- //
-
+        // Let's also configure the best (i.e. only valid) time to enter and leave
 
         const loginDate = document.getElementById('loginDate');
         const logoutDate = document.getElementById('logoutDate');
